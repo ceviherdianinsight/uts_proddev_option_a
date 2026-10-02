@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UTS Option A — Product Critique & Improvement</title>
+<style>
+:root{
+ --navy:#102a43; --blue:#1769e0; --blue2:#eaf2ff; --green:#087f5b;
+ --green2:#e8f8f1; --orange:#c2410c; --orange2:#fff4e8;
+ --gray:#52606d; --light:#f5f7fa; --white:#fff; --border:#d9e2ec;
+ --shadow:0 8px 28px rgba(16,42,67,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;background:var(--light);color:#243b53;
+ font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.7;
+}
+.hero{
+ background:linear-gradient(135deg,#102a43 0%,#1769e0 100%);
+ color:white;padding:60px 20px 48px;
+}
+.container{max-width:1120px;margin:auto}
+.badge{
+ display:inline-block;padding:7px 14px;border-radius:999px;
+ background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+ font-size:.82rem;font-weight:700;letter-spacing:.03em;
+}
+h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;margin:18px 0 12px}
+.hero h2{font-size:1.3rem;font-weight:500;margin:0;opacity:.95}
+.hero p{max-width:850px;font-size:1.05rem;opacity:.92}
+.meta{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+ gap:12px;margin-top:28px
+}
+.meta div{background:rgba(255,255,255,.11);padding:14px 16px;border-radius:12px}
+.meta small{display:block;text-transform:uppercase;opacity:.7;font-weight:700;font-size:.72rem}
+.meta strong{font-size:1rem}
+main{padding:30px 20px 70px}
+section{
+ background:var(--white);border:1px solid var(--border);border-radius:18px;
+ padding:30px;margin:22px 0;box-shadow:var(--shadow);
+}
+h2{color:var(--navy);font-size:1.7rem;margin:0 0 18px}
+h3{color:var(--navy);margin:24px 0 8px}
+h4{color:var(--navy);margin:18px 0 6px}
+p{margin:8px 0 14px}
+.callout{
+ border-left:5px solid var(--blue);background:var(--blue2);
+ padding:18px 20px;border-radius:0 12px 12px 0;margin:18px 0
+}
+.warning{
+ border-left:5px solid var(--orange);background:var(--orange2);
+ padding:18px 20px;border-radius:0 12px 12px 0;margin:18px 0
+}
+.success{
+ border-left:5px solid var(--green);background:var(--green2);
+ padding:18px 20px;border-radius:0 12px 12px 0;margin:18px 0
+}
+.question{
+ border:1px solid var(--border);background:#fbfdff;border-radius:14px;
+ padding:20px;margin:16px 0
+}
+.qtitle{font-weight:800;color:var(--navy);font-size:1.05rem}
+.number{
+ display:inline-flex;width:30px;height:30px;border-radius:50%;
+ align-items:center;justify-content:center;background:var(--blue);
+ color:white;font-weight:800;margin-right:8px
+}
+.flow{
+ display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:22px 0
+}
+.flow span{
+ background:#edf4ff;color:#174ea6;border:1px solid #c9dcff;
+ border-radius:9px;padding:8px 12px;font-weight:700
+}
+.arrow{color:#829ab1}
+table{width:100%;border-collapse:collapse;margin:14px 0 20px}
+th,td{border:1px solid var(--border);padding:11px 12px;text-align:left;vertical-align:top}
+th{background:#eef4fa;color:var(--navy)}
+tr:nth-child(even) td{background:#fbfcfe}
+.tag{
+ display:inline-block;padding:4px 9px;border-radius:6px;
+ font-size:.76rem;font-weight:800;background:#eef4ff;color:#174ea6
+}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{
+ border:1px solid var(--border);border-radius:14px;padding:18px;background:#fff
+}
+.card h4{margin-top:0}
+.code{
+ background:#102a43;color:#e6f0ff;padding:18px;border-radius:12px;
+ overflow:auto;font-family:Consolas,monospace;white-space:pre-wrap
+}
+ul li,ol li{margin:6px 0}
+.small{font-size:.9rem;color:var(--gray)}
+.center{text-align:center}
+.rubric td:last-child,.rubric th:last-child{text-align:center}
+.footer{text-align:center;color:#718096;padding:20px}
+@media(max-width:780px){
+ .two,.three{grid-template-columns:1fr}
+ section{padding:21px}
+ th,td{font-size:.88rem}
+}
+@media print{
+ body{background:white}
+ .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ section{box-shadow:none;break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+<header class="hero">
+<div class="container">
+ <span class="badge">UNIVERSITAS PADJADJARAN · FAKULTAS EKONOMI DAN BISNIS · PROGRAM STUDI BISNIS DIGITAL</span>
+ <h1>UTS Pengembangan Produk</h1>
+ <h2>OPTION A — PRODUCT CRITIQUE &amp; IMPROVEMENT</h2>
+ <p>
+ Anda berperan sebagai <strong>Product Manager / Product Development Analyst</strong>.
+ Pilih satu produk yang sudah tersedia di pasar, lakukan kritik berbasis customer dan evidence,
+ identifikasi product gap, lalu rancang improvement yang dapat diuji.
+ </p>
+ <div class="meta">
+  <div><small>Mata Kuliah</small><strong>Pengembangan Produk</strong></div>
+  <div><small>Kode</small><strong>B10E.5105</strong></div>
+  <div><small>Bentuk</small><strong>Individu</strong></div>
+  <div><small>Bobot</small><strong>20%</strong></div>
+  <div><small>Output</small><strong>Laporan + Prototype</strong></div>
+ </div>
+</div>
+</header>
+
+<main class="container">
+
+<section>
+<h2>1. Deskripsi UTS</h2>
+<p>
+Dalam Option A, Anda <strong>tidak membuat produk dari nol</strong>. Anda memilih satu produk
+yang sudah ada, memahami bagaimana produk tersebut bekerja, menemukan masalah atau peluang
+perbaikannya, dan mengembangkan usulan improvement.
+</p>
+<p>
+Fokus utama ujian adalah kemampuan menghubungkan:
+<strong>customer problem → evidence → competitive gap → product improvement → prototype → market testing</strong>.
+</p>
+
+<div class="callout">
+<strong>Pertanyaan utama:</strong><br>
+“Apakah produk yang Anda pilih masih memiliki masalah atau peluang yang dapat dikembangkan,
+dan bagaimana Anda membuktikannya?”
+</div>
+
+<div class="flow">
+<span>Existing Product</span><b class="arrow">→</b>
+<span>Customer</span><b class="arrow">→</b>
+<span>Problem</span><b class="arrow">→</b>
+<span>Evidence</span><b class="arrow">→</b>
+<span>Competitor</span><b class="arrow">→</b>
+<span>Gap</span><b class="arrow">→</b>
+<span>Improvement</span><b class="arrow">→</b>
+<span>Prototype</span><b class="arrow">→</b>
+<span>Market Test</span>
+</div>
+</section>
+
+<section>
+<h2>2. Tujuan Pembelajaran yang Dinilai</h2>
+<p>Melalui tugas ini mahasiswa diharapkan mampu:</p>
+<ol>
+<li>Memahami dan mengaplikasikan proses <em>product review</em>.</li>
+<li>Mengidentifikasi <em>customer needs</em> dan <em>pain points</em>.</li>
+<li>Melakukan <em>competitive analysis</em>.</li>
+<li>Mengidentifikasi peluang pengembangan produk.</li>
+<li>Menentukan prioritas improvement berdasarkan kebutuhan customer.</li>
+<li>Merancang konsep produk/fitur yang memberikan customer value.</li>
+<li>Menentukan target market dan positioning dari improvement.</li>
+<li>Membuat prototype sederhana.</li>
+<li>Merancang metode <em>market testing</em>.</li>
+<li>Menyusun argumentasi berdasarkan data/evidence, bukan hanya opini.</li>
+</ol>
+</section>
+
+<section>
+<h2>3. Pilihan Produk</h2>
+<p>Pilih <strong>satu produk nyata yang sudah tersedia di pasar</strong>.</p>
+<div class="three">
+ <div class="card">
+  <h4>Produk Digital</h4>
+  <p>Aplikasi, fintech, marketplace, edutech, healthtech, SaaS, social media, streaming, dll.</p>
+ </div>
+ <div class="card">
+  <h4>Produk Fisik</h4>
+  <p>Makanan, minuman, fashion, kosmetik, elektronik, household product, dll.</p>
+ </div>
+ <div class="card">
+  <h4>Produk UMKM / Lokal</h4>
+  <p>Produk lokal yang memiliki customer nyata dan dapat diamati proses pemasarannya.</p>
+ </div>
+</div>
+
+<h3>Syarat produk</h3>
+<ul>
+<li>Sudah tersedia atau digunakan oleh customer.</li>
+<li>Memiliki informasi yang cukup untuk dianalisis.</li>
+<li>Memiliki minimal satu alternatif/kompetitor.</li>
+<li>Memungkinkan Anda mengidentifikasi customer problem atau product gap.</li>
+</ul>
+
+<div class="warning">
+<strong>Hindari:</strong> memilih produk hanya karena terkenal. Produk harus dipilih karena
+Anda dapat menunjukkan <strong>masalah, kebutuhan customer, evidence, dan peluang improvement</strong>.
+</div>
+</section>
+
+<section>
+<h2>4. Tahap 1 — Product Review</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">1</span>Identifikasi Produk</div>
+<p>Jelaskan produk yang Anda pilih secara ringkas tetapi analitis.</p>
+<table>
+<tr><th>Aspek</th><th>Yang Harus Dijelaskan</th></tr>
+<tr><td>Nama produk</td><td>Nama dan kategori produk.</td></tr>
+<tr><td>Perusahaan/brand</td><td>Pemilik atau pengembang produk.</td></tr>
+<tr><td>Product type</td><td>Digital, physical, service, platform, SaaS, dll.</td></tr>
+<tr><td>Target customer</td><td>Siapa pengguna/customer utama?</td></tr>
+<tr><td>Customer problem</td><td>Masalah apa yang ingin diselesaikan?</td></tr>
+<tr><td>Value proposition</td><td>Value utama apa yang ditawarkan?</td></tr>
+<tr><td>Revenue model</td><td>Bagaimana produk menghasilkan pendapatan jika informasinya tersedia?</td></tr>
+</table>
+</div>
+
+<div class="question">
+<div class="qtitle"><span class="number">2</span>Customer Journey</div>
+<p>
+Gambarkan secara sederhana bagaimana customer berinteraksi dengan produk:
+<strong>Need → Search → Purchase/Use → Experience → Outcome</strong>.
+Identifikasi titik yang paling berpotensi menimbulkan masalah.
+</p>
+</div>
+</section>
+
+<section>
+<h2>5. Tahap 2 — Customer Needs &amp; Pain Points</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">3</span>Identifikasi Minimal 5 Customer Needs</div>
+<p>
+Jangan hanya menulis fitur. Jelaskan kebutuhan yang sebenarnya ingin dipenuhi customer.
+</p>
+
+<table>
+<tr><th>No</th><th>Customer Need</th><th>Pain Point</th><th>Evidence</th><th>Importance</th></tr>
+<tr><td>1</td><td>...</td><td>...</td><td>...</td><td>High/Med/Low</td></tr>
+<tr><td>2</td><td>...</td><td>...</td><td>...</td><td>High/Med/Low</td></tr>
+<tr><td>3</td><td>...</td><td>...</td><td>...</td><td>High/Med/Low</td></tr>
+<tr><td>4</td><td>...</td><td>...</td><td>...</td><td>High/Med/Low</td></tr>
+<tr><td>5</td><td>...</td><td>...</td><td>...</td><td>High/Med/Low</td></tr>
+</table>
+</div>
+
+<div class="question">
+<div class="qtitle"><span class="number">4</span>Evidence</div>
+<p>Gunakan minimal <strong>2 sumber evidence</strong>. Contoh:</p>
+<ul>
+<li>Review pengguna.</li>
+<li>Survei sederhana.</li>
+<li>Wawancara.</li>
+<li>Observasi.</li>
+<li>Website resmi.</li>
+<li>Marketplace/App Store/Google Play.</li>
+<li>Data perusahaan.</li>
+<li>Laporan industri.</li>
+</ul>
+<p>
+Untuk data survei/wawancara, jelaskan <strong>jumlah responden, karakteristik responden,
+metode pengumpulan, dan pertanyaan utama</strong>.
+</p>
+</div>
+
+<div class="warning">
+<strong>Penting:</strong> Jangan menuliskan “customer membutuhkan X” tanpa evidence.
+Jika menggunakan data simulasi untuk latihan, tandai secara eksplisit sebagai <strong>DATA SIMULASI</strong>.
+</div>
+</section>
+
+<section>
+<h2>6. Tahap 3 — Competitive Analysis</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">5</span>Identifikasi Kompetitor</div>
+<p>
+Identifikasi minimal <strong>2 kompetitor</strong> atau alternatif yang digunakan customer
+untuk menyelesaikan problem yang sama.
+</p>
+
+<table>
+<tr>
+<th>Faktor</th><th>Produk Utama</th><th>Kompetitor 1</th><th>Kompetitor 2</th>
+</tr>
+<tr><td>Target customer</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Core problem solved</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Price</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Features</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Ease of use</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>UX/UI</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Service</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Technology</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Value proposition</td><td>...</td><td>...</td><td>...</td></tr>
+</table>
+</div>
+
+<div class="question">
+<div class="qtitle"><span class="number">6</span>Competitive Gap</div>
+<p>
+Setelah membandingkan produk, identifikasi minimal <strong>3 competitive gaps</strong>.
+</p>
+<table>
+<tr><th>Gap</th><th>Evidence</th><th>Customer Impact</th><th>Opportunity</th></tr>
+<tr><td>Gap 1</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Gap 2</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Gap 3</td><td>...</td><td>...</td><td>...</td></tr>
+</table>
+</div>
+</section>
+
+<section>
+<h2>7. Tahap 4 — Problem Identification</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">7</span>Temukan Minimal 3 Masalah Utama</div>
+<p>Gunakan format analisis berikut:</p>
+
+<table>
+<tr><th>Problem</th><th>Root Cause</th><th>Evidence</th><th>Impact</th></tr>
+<tr><td>Problem 1</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Problem 2</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>Problem 3</td><td>...</td><td>...</td><td>...</td></tr>
+</table>
+</div>
+
+<div class="question">
+<div class="qtitle"><span class="number">8</span>Prioritization</div>
+<p>
+Pilih <strong>satu masalah utama</strong> yang akan menjadi fokus improvement.
+Gunakan minimal tiga kriteria:
+</p>
+<ul>
+<li>Customer impact.</li>
+<li>Frequency of problem.</li>
+<li>Business impact.</li>
+<li>Feasibility of solution.</li>
+</ul>
+
+<table>
+<tr><th>Problem</th><th>Customer Impact</th><th>Frequency</th><th>Business Impact</th><th>Feasibility</th><th>Priority</th></tr>
+<tr><td>Problem 1</td><td>1–5</td><td>1–5</td><td>1–5</td><td>1–5</td><td>...</td></tr>
+<tr><td>Problem 2</td><td>1–5</td><td>1–5</td><td>1–5</td><td>1–5</td><td>...</td></tr>
+<tr><td>Problem 3</td><td>1–5</td><td>1–5</td><td>1–5</td><td>1–5</td><td>...</td></tr>
+</table>
+<p class="small">Jelaskan alasan pemilihan masalah utama. Jangan hanya menyebut skor.</p>
+</div>
+</section>
+
+<section>
+<h2>8. Tahap 5 — Product Improvement</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">9</span>Rancang Solusi</div>
+<p>
+Jika Anda menjadi Product Manager, rancang minimal <strong>3 improvement</strong>.
+</p>
+
+<table>
+<tr><th>Problem</th><th>Root Cause</th><th>Improvement</th><th>Customer Value</th><th>Expected Impact</th></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+<tr><td>...</td><td>...</td><td>...</td><td>...</td><td>...</td></tr>
+</table>
+</div>
+
+<div class="question">
+<div class="qtitle"><span class="number">10</span>Value Proposition Improvement</div>
+<p>Jelaskan:</p>
+<ul>
+<li>Customer yang dituju.</li>
+<li>Problem utama.</li>
+<li>Improvement yang ditawarkan.</li>
+<li>Benefit bagi customer.</li>
+<li>Perbedaan dari produk saat ini.</li>
+<li>Alasan customer akan menggunakan improvement tersebut.</li>
+</ul>
+
+<div class="code">For: [target customer]
+Who: [customer problem]
+Our improvement: [solution]
+That provides: [customer benefit]
+Unlike: [existing product/alternative]
+Our improvement: [unique value]</div>
+</div>
+</section>
+
+<section>
+<h2>9. Tahap 6 — Product Specification</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">11</span>Spesifikasi Improvement</div>
+<p>
+Tentukan minimal <strong>5 fitur atau spesifikasi</strong>. Setiap fitur harus memiliki hubungan
+dengan customer need.
+</p>
+
+<table>
+<tr><th>Feature</th><th>Customer Need</th><th>Priority</th><th>Function</th><th>Expected Benefit</th></tr>
+<tr><td>Feature 1</td><td>...</td><td>High</td><td>...</td><td>...</td></tr>
+<tr><td>Feature 2</td><td>...</td><td>High</td><td>...</td><td>...</td></tr>
+<tr><td>Feature 3</td><td>...</td><td>Medium</td><td>...</td><td>...</td></tr>
+<tr><td>Feature 4</td><td>...</td><td>Medium</td><td>...</td><td>...</td></tr>
+<tr><td>Feature 5</td><td>...</td><td>Low</td><td>...</td><td>...</td></tr>
+</table>
+</div>
+
+<div class="callout">
+<strong>Prinsip:</strong> Jangan menambahkan fitur hanya karena “menarik”.
+Setiap fitur harus dapat dijelaskan: <strong>customer need apa yang diselesaikan?</strong>
+</div>
+</section>
+
+<section>
+<h2>10. Tahap 7 — Prototype</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">12</span>Buat Prototype / Wireframe</div>
+<p>
+Buat prototype sederhana dari improvement Anda. Prototype dapat dibuat menggunakan:
+<strong>Figma, Canva, PowerPoint, HTML, atau tools lainnya.</strong>
+</p>
+
+<p>Minimal tunjukkan:</p>
+<ol>
+<li>Entry point / Home.</li>
+<li>Fitur utama.</li>
+<li>Customer action.</li>
+<li>Output/result.</li>
+<li>Customer journey setelah improvement.</li>
+</ol>
+
+<div class="code">HOME
+  ↓
+SELECT / INPUT
+  ↓
+MAIN FEATURE
+  ↓
+PROCESS
+  ↓
+RESULT
+  ↓
+CUSTOMER ACTION</div>
+
+<p>
+Sertakan screenshot prototype di laporan dan berikan penjelasan singkat mengenai setiap screen.
+</p>
+</div>
+</section>
+
+<section>
+<h2>11. Tahap 8 — Target Market &amp; Positioning</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">13</span>Segmentation</div>
+<p>Identifikasi calon customer berdasarkan:</p>
+<ul>
+<li>Demographic.</li>
+<li>Geographic.</li>
+<li>Psychographic.</li>
+<li>Behavioral.</li>
+<li>Digital behavior jika relevan.</li>
+</ul>
+</div>
+
+<div class="question">
+<div class="qtitle"><span class="number">14</span>Targeting</div>
+<p>
+Pilih target customer utama. Jelaskan <strong>mengapa segmen tersebut diprioritaskan</strong>.
+</p>
+</div>
+
+<div class="question">
+<div class="qtitle"><span class="number">15</span>Positioning</div>
+<p>
+Buat pernyataan positioning yang menjelaskan bagaimana improvement Anda ingin dipersepsikan
+oleh target customer.
+</p>
+<div class="code">For [target customer],
+[product/improvement] is a [category]
+that [key benefit]
+because [reason to believe].</div>
+</div>
+</section>
+
+<section>
+<h2>12. Tahap 9 — Market Testing</h2>
+
+<div class="question">
+<div class="qtitle"><span class="number">16</span>Rancang Market Test</div>
+<p>
+Anda belum boleh menganggap improvement berhasil hanya karena menurut Anda idenya bagus.
+Rancang pengujian untuk mengetahui apakah customer benar-benar menerima konsep tersebut.
+</p>
+
+<table>
+<tr><th>Komponen</th><th>Yang Harus Dijelaskan</th></tr>
+<tr><td>Hypothesis</td><td>Apa yang ingin dibuktikan?</td></tr>
+<tr><td>Target respondent</td><td>Siapa yang akan diuji?</td></tr>
+<tr><td>Sample size</td><td>Berapa responden?</td></tr>
+<tr><td>Method</td><td>Survey, interview, prototype test, A/B test, concept test, dll.</td></tr>
+<tr><td>Variables</td><td>Apa yang diukur?</td></tr>
+<tr><td>Success metric</td><td>Berapa nilai minimum agar dianggap berhasil?</td></tr>
+<tr><td>Decision rule</td><td>Apa yang dilakukan jika hasil memenuhi/tidak memenuhi target?</td></tr>
+</table>
+</div>
+
+<div class="question">
+<div class="qtitle"><span class="number">17</span>Contoh Format Hipotesis</div>
+<div class="code">H1:
+Target customer membutuhkan [improvement].
+
+Test:
+[Metode pengujian] terhadap [jumlah] responden.
+
+Success Metric:
+Minimal [X]% responden menyatakan [indikator].
+
+Decision:
+Jika metric ≥ target → lanjut ke tahap berikutnya.
+Jika metric < target → revisi product concept dan lakukan testing kembali.</div>
+</div>
+</section>
+
+<section>
+<h2>13. Evidence &amp; Data Requirement</h2>
+<p>Gunakan evidence untuk mendukung keputusan utama Anda.</p>
+
+<table>
+<tr><th>Keputusan</th><th>Evidence yang Diharapkan</th></tr>
+<tr><td>Memilih customer</td><td>Data karakteristik/behavior customer.</td></tr>
+<tr><td>Menentukan problem</td><td>Review, survey, interview, observation.</td></tr>
+<tr><td>Menentukan competitor</td><td>Informasi produk/fitur/harga/target.</td></tr>
+<tr><td>Memilih improvement</td><td>Hubungan customer need dengan product gap.</td></tr>
+<tr><td>Menentukan market test</td><td>Hypothesis dan metric yang dapat diukur.</td></tr>
+</table>
+
+<div class="warning">
+<strong>ASSUMPTION ≠ EVIDENCE.</strong><br>
+“Menurut saya customer membutuhkan fitur X” adalah assumption.
+<br><br>
+“Berdasarkan 80 responden, 64 responden menyatakan mengalami masalah X” adalah evidence.
+</div>
+</section>
+
+<section>
+<h2>14. Struktur Laporan yang Wajib Dikumpulkan</h2>
+<table>
+<tr><th>Bagian</th><th>Isi Minimum</th></tr>
+<tr><td>Cover</td><td>Nama, NPM, kelas, judul, produk yang dipilih.</td></tr>
+<tr><td>Executive Summary</td><td>Produk, problem utama, improvement, dan expected value.</td></tr>
+<tr><td>Bab 1 — Product Review</td><td>Profil produk, customer, value proposition, customer journey.</td></tr>
+<tr><td>Bab 2 — Customer Needs</td><td>Minimal 5 needs, pain points, evidence.</td></tr>
+<tr><td>Bab 3 — Competitive Analysis</td><td>Minimal 2 competitor dan competitive gap.</td></tr>
+<tr><td>Bab 4 — Problem Identification</td><td>Minimal 3 problems, root cause, impact, prioritization.</td></tr>
+<tr><td>Bab 5 — Product Improvement</td><td>Minimal 3 improvement, value proposition, feature specification.</td></tr>
+<tr><td>Bab 6 — Prototype</td><td>Prototype/wireframe dan customer journey.</td></tr>
+<tr><td>Bab 7 — Market</td><td>Segmentation, targeting, positioning.</td></tr>
+<tr><td>Bab 8 — Market Testing</td><td>Hypothesis, method, respondent, metric, decision rule.</td></tr>
+<tr><td>Conclusion</td><td>Ringkasan problem, solusi, evidence, dan next step.</td></tr>
+<tr><td>References</td><td>Semua sumber data/informasi yang digunakan.</td></tr>
+</table>
+</section>
+
+<section>
+<h2>15. Contoh Alur Jawaban yang Diharapkan</h2>
+
+<div class="success">
+<strong>Contoh logika:</strong><br><br>
+Customer mengalami <strong>Problem X</strong>.<br>
+↓<br>
+Evidence menunjukkan masalah tersebut terjadi pada <strong>Y% customer</strong>.<br>
+↓<br>
+Competitor analysis menunjukkan terdapat <strong>Gap Z</strong>.<br>
+↓<br>
+Maka diusulkan <strong>Improvement A</strong>.<br>
+↓<br>
+Improvement A memiliki fitur <strong>1, 2, 3</strong>.<br>
+↓<br>
+Prototype dibuat untuk menguji konsep.<br>
+↓<br>
+Market test menggunakan <strong>metode X</strong>.<br>
+↓<br>
+Keberhasilan diukur menggunakan <strong>metric Y</strong>.<br>
+↓<br>
+Berdasarkan hasil test: <strong>Proceed / Revise / Stop</strong>.
+</div>
+</section>
+
+<section>
+<h2>16. Contoh Kesalahan yang Harus Dihindari</h2>
+
+<div class="two">
+<div class="card">
+<h4>❌ Terlalu Deskriptif</h4>
+<p>“Shopee memiliki banyak fitur dan mudah digunakan.”</p>
+</div>
+<div class="card">
+<h4>✅ Lebih Analitis</h4>
+<p>“Berdasarkan review/survey X, pengguna mengalami problem Y yang berpotensi mengurangi Z. Hal ini menunjukkan peluang improvement pada fitur A.”</p>
+</div>
+
+<div class="card">
+<h4>❌ Berbasis Opini</h4>
+<p>“Saya rasa fitur ini pasti disukai mahasiswa.”</p>
+</div>
+<div class="card">
+<h4>✅ Berbasis Evidence</h4>
+<p>“Hasil survey terhadap target customer menunjukkan X% responden menyatakan kebutuhan terhadap fitur tersebut.”</p>
+</div>
+</div>
+
+<div class="warning">
+Jangan menjadikan <strong>logo, warna, slogan, dan desain visual</strong> sebagai inti analisis.
+Fokus utama UTS adalah <strong>customer problem, evidence, product gap, improvement, dan market testing</strong>.
+</div>
+</section>
+
+<section>
+<h2>17. Rubrik Penilaian</h2>
+<table class="rubric">
+<tr><th>Komponen</th><th>Bobot</th><th>Indikator</th></tr>
+<tr><td>Product Review</td><td>10%</td><td>Pemahaman produk, customer, value proposition, customer journey.</td></tr>
+<tr><td>Customer Needs</td><td>15%</td><td>Kejelasan needs/pain points dan kualitas evidence.</td></tr>
+<tr><td>Competitive Analysis</td><td>15%</td><td>Kedalaman perbandingan dan identification of gaps.</td></tr>
+<tr><td>Problem Identification</td><td>10%</td><td>Problem, root cause, impact, dan prioritas.</td></tr>
+<tr><td>Product Improvement</td><td>15%</td><td>Relevansi solusi dan hubungan dengan customer needs.</td></tr>
+<tr><td>Product Specification</td><td>10%</td><td>Kejelasan fitur dan hubungan fitur dengan needs.</td></tr>
+<tr><td>Prototype</td><td>10%</td><td>Kejelasan alur dan representasi improvement.</td></tr>
+<tr><td>Market &amp; Positioning</td><td>5%</td><td>STP dan target customer.</td></tr>
+<tr><td>Market Testing</td><td>5%</td><td>Hypothesis, method, metric, decision rule.</td></tr>
+<tr><td>Argumentasi &amp; Evidence</td><td>5%</td><td>Ketepatan penggunaan data dan sumber.</td></tr>
+<tr><th>TOTAL</th><th>100%</th><th></th></tr>
+</table>
+<p><strong>Bobot UTS terhadap nilai akhir mata kuliah: 20%.</strong></p>
+</section>
+
+<section>
+<h2>18. Checklist Sebelum Submit</h2>
+<ul>
+<li>☐ Saya memilih satu produk yang benar-benar sudah ada.</li>
+<li>☐ Saya menjelaskan target customer.</li>
+<li>☐ Saya menemukan minimal 5 customer needs.</li>
+<li>☐ Saya menemukan minimal 3 product problems/gaps.</li>
+<li>☐ Saya menggunakan evidence/data.</li>
+<li>☐ Saya membandingkan minimal 2 kompetitor.</li>
+<li>☐ Saya menentukan satu problem prioritas.</li>
+<li>☐ Saya mengusulkan minimal 3 improvement.</li>
+<li>☐ Saya menjelaskan value proposition improvement.</li>
+<li>☐ Saya menentukan minimal 5 fitur/spesifikasi.</li>
+<li>☐ Saya membuat prototype/wireframe.</li>
+<li>☐ Saya menentukan segmentation, targeting, positioning.</li>
+<li>☐ Saya membuat market testing plan.</li>
+<li>☐ Saya memiliki success metric dan decision rule.</li>
+<li>☐ Semua sumber data/informasi dicantumkan.</li>
+</ul>
+</section>
+
+<section>
+<h2>19. Prinsip Penilaian</h2>
+<div class="callout">
+<strong>Yang dinilai bukan seberapa terkenal produk yang Anda pilih.</strong><br>
+Yang dinilai adalah seberapa kuat Anda <strong>berpikir sebagai product developer</strong>.
+</div>
+
+<div class="three">
+<div class="card"><h4>Think</h4><p>Temukan masalah yang nyata.</p></div>
+<div class="card"><h4>Analyze</h4><p>Gunakan customer &amp; competitive evidence.</p></div>
+<div class="card"><h4>Build &amp; Test</h4><p>Rancang improvement dan uji sebelum menyimpulkan.</p></div>
+</div>
+
+<p class="center"><strong>Problem → Evidence → Insight → Improvement → Prototype → Test</strong></p>
+</section>
+
+</main>
+
+<div class="footer">
+<strong>UTS Pengembangan Produk · Program Studi Bisnis Digital · Universitas Padjadjaran</strong><br>
+Product Critique &amp; Improvement — Option A
+</div>
+</body>
+</html>
